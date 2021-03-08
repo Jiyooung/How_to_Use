@@ -62,3 +62,27 @@ int parametric_rec(int l, int r){
 
 ### (l + r) vs (l + r + 1)
 1,2,3,4 로 가정해보고 어떤 것으로 할 지 생각해보면 편함<br>
+
+
+## python의 bisect 모듈 
+python의 내장 라이브러리<br>
+`from bisect import bisect_left`
+이 라이브러리는 별도의 타입이나 클래스를 요구하지 않으면서 몇 가지 함수를 이용해서 기본 리스트에 대해서 이진 탐색을 수행하는 api들을 제공<br>
+
+### bisect_left(arr, x, lo=0, hi=len(arr))
+주어진 리스트 arr과 값 x 가 있을 때, x 가 위치해야 할 인덱스를 구하는 함수<br>
+return : index<br>
+- arr[index] 값이 x가 아닐 수도 있음 -> 동일 여부 필요<br>
+- arr의 모든 원소가 x보다 작을 경우 return len(a)<br>
+arr의 특정 범위 내에서만 탐색을 원할 때 lo, hi 사용<br>
+_left : `all(val <= x for val in a[lo:i])`<br>
+_right : `all(val > x for val in a[i:hi])`<br>
+
+#### _left vs _right
+주어진 값 x와 같은 값이 리스트 내에 있을 때, x의 위치가 동일한 값으로부터 왼쪽에 있을지 오른쪽에 있을지를 결정<br>
+default : _right<br>
+
+### insort_left(arr, x)
+bisect()로 구해진 위치에 x 값을 삽입<br>
+default : _right<br>
+`a.insert(bisect.bisect_left(a, x, lo, hi), x)`<br>
