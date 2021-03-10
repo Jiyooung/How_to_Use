@@ -9,9 +9,12 @@ x = 10
 def func():
     y = 5
     global z = 7
+    global b    # 선언과 동시에 초기화하면 에러남
+    b = [0 for _ in range(5)]
 
     print(x, y, z)  # 10, 5, 7
 
+func()
 print(x, y, z)      # 10, 에러, 7  > 에러
 ```
 
