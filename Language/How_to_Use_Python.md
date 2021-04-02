@@ -1,8 +1,8 @@
 # Python
 
-## 변수
+# 변수
 
-### 전역변수
+## 전역변수
 ```python
 x = 10
 
@@ -18,11 +18,11 @@ func()
 print(x, y, z)      # 10, 에러, 7  > 에러
 ```
 
-## 자료형
+# 자료형
 
-### int
+## int
 
-#### 반올림, 내림
+### 반올림, 내림
 ```python
 import numpy as np
 np.around(a)    # 0.5 기준으로 올림/내림
@@ -35,26 +35,26 @@ np.trucn(a)     # 버림
 np.fix(a)       # 0 반향으로 가장 가까운 정수로 올림/내림
 ```
 
-### INF
+## INF
 ```python
 max_val = float('inf')
 min_val = float('-inf')
 ```
-#### 형변환
+### 형변환
 int("3")<br>
 str(3)<br>
 
-### string
+## string
 
-#### string > int
+### string > int
 ```python
 s = "123"
 n = int(s)
 ```
 
-### list
+## list
 
-#### list 원소추가
+### list 원소추가
 ```python
 a.append(1)     # 원소 마지막에 1 추가
 a.insert(2, 5)  # index 2의 위치에 값 5 추가, 뒤에 값들은 밀림
@@ -62,7 +62,7 @@ c = a + b       # list 합치기
 a.extend([1,2,3])   # 기존 a의 뒤에 해당 리스트 추가하기
 
 ```
-#### list 원소삭제
+### list 원소삭제
 ```python
 del a[1]    # list a의 index 1 삭제
 a.remove(3) # list a에서 값 3을 찾아 가장 먼저 발견된 3을 제거
@@ -70,21 +70,21 @@ a.remove(3) # list a에서 값 3을 찾아 가장 먼저 발견된 3을 제거
 del a[a.index(3)] # remove(3)과 동일한 효과
 ```
 
-#### 특정 값이 있는지 체크하기
+### 특정 값이 있는지 체크하기
 ```python
 if item in list:        # item이 list에 있으면 ~
 if item not in list:    # item이 list에 없으면 ~
 ```
 
-#### 특정 값으로 초기화
+### 특정 값으로 초기화
 ```python
 l = [0 for i in range(n)]   # n크기만큼 0으로 초기화한 리스트 생성
 matrix = [[0 for col in range(c)] for row in range(r)]  # r * c 인 2차원 배열 생성
 ```
 
-#### list 정렬하기
+### list 정렬하기
 
-##### <list>.sort()
+#### <list>.sort()
 ```python
 l.sort([reverse=<True|False>][, key=<function>])
 ``` 
@@ -98,7 +98,7 @@ l.sort(key=lambda x:x[0])   # x[0] : 첫 번째 인자로 sort
 i.sort(key=lambda x: (x[0], -x[1])) # 첫 번째 인자값이 동일하면 두번째 값을 비교하여 내림차순으로 정렬, -붙이면 내림차순
 ```
 
-##### sorted(<list>)
+#### sorted(<list>)
 ```python
 sorted(iterable[, key=<function>][, reverse=<True|False>])
 a = sorted(d.items(), key=lambda x:x[0]) # d.items() > [(key, value)] 형태로 반환
@@ -107,9 +107,53 @@ a = sorted(d.items(), key=lambda x:x[0]) # d.items() > [(key, value)] 형태로 
 모든 iterable(list, tuple, dict, 문자열 등등)에 동작 가능
 
 
-## 자료구조
+## set
+```python
+s1 = set('abcd')    # {'a', 'b', 'c', 'd'}
+len(s1)             # 4
+s2 = {'c','f','g'}
+s1 - s2             # {'a', 'b', 'd'} 차집합
+s1 & s2             # {'c'} 교집합
+s1 | s2             # {'a', 'b', 'c', 'd', 'f', 'g'} 합집합
 
-### heapq
+s = set()
+s.add(2)            # 추가
+s.remove(2)         # 삭제. 요소 없을 시 에러
+s.discard(3)        # 삭제. 요소 없을 시 무시
+a = s.pop()         # 임의의 값 삭제 & 리턴
+s.clear()           # 모든 값 삭제
+s3 = s.copy()       # 집합 복제해 리턴
+
+# is로 시작하는 함수는 True or False 리턴
+s1.isdisjoint(s2)   # 공통 원소가 없는가?
+s1.issubset(s2)     # 부분집합인가?
+s1.issuperset(s2)   # 확대집합인가?
+
+s3 = s1.union(s2)       # 합집합 만들어 리턴
+s1.update(s2)           # 합집합 만들어 s1 수정
+s3 = s1.difference(s2)  # 차집합 만들어 리턴
+s1.difference_update(s2)# 차집합 만들어 s1 수정
+
+
+```
+
+
+
+# ASCII 코드 변경
+- ascii -> char<br>
+```python 
+chr(45)
+```
+- char -> ascii<br>
+```python
+ord("A")
+```
+
+
+
+# 자료구조
+
+## heapq
 ```python
 import heapq
 room = []
@@ -118,11 +162,11 @@ room[0]                     # minheap
 heapq.heappop(room)         # 제일 작은 값 return
 ```
 
-### queue
+## queue
 queue는 동기화를 위해 만들어져서 deque에 비해 느림
 queue 대신 colletions.deque 사용 권장
 
-### deque
+## deque
 
 ```py
 import collections
@@ -138,15 +182,15 @@ deq.rotate(n)       # deq의 요소들을 n만큼 회전, 음수면 좌측, 양�
 ```
 
 
-## 입출력
+# 입출력
 
-### map
+## map
 ```py
 map(<function>, <iterable>) # iterable : list, tuple, dictionary, str
 ```
 \<iterable> 의 요소를 \<function> 을 적용하여 변환
 
-### 입력받기
+## 입력
 ```py
 a, b, c = map(int,input().split())  # 1 2 3 입력 > a = 1, b = 2, c = 3
 N, M = map(int, sys.stdin.readline().split())       # 자동으로 \n 없이 들어감
@@ -162,26 +206,16 @@ b = x.split(" ")
 print(b)    # ['Hello', 'World']
 ```
 
-### rstrip()
+## rstrip()
 right 오른쪽 공백을 제거  
 - 여러줄의 입력을 받을때, \n도 같이 들어오게 되는데 이때 사용하면 편리
 
-### lstrip()
+## lstrip()
 left 왼쪽 공백을 제거
 
-### strip()
+## strip()
 양쪽 공백을 제거
 
-
-## ASCII 코드 변경
-- ascii -> char<br>
-```python 
-chr(45)
-```
-- char -> ascii<br>
-```python
-ord("A")
-```
 
 ## 출력
 ```python
@@ -190,9 +224,9 @@ return f"{h:02d}:{m:02d}:{s:02d}"
 ```
 
 
-## 연산자
+# 연산자
 
-### 산술 연산자
+## 산술 연산자
 |Operator|Description|Example|
 |---|---|---|
 |+|더하기|a + b = 30|
@@ -203,17 +237,17 @@ return f"{h:02d}:{m:02d}:{s:02d}"
 |**|제곱|a ** c = 1000|
 |//|몫|a // c = 3|
 
-### 삼항 연산자
+## 삼항 연산자
 ```python
 a if 조건식 else b 
 ```
 조건식이 참이면 a, 거짓이면 b
 
-## 반복문
+# 반복문
 
-### for문
+## for문
 
-#### for문 하나 한 줄로 작성하기
+### for문 하나 한 줄로 작성하기
 ```python
 for i in list1 :
     list2.append(i + 1)
@@ -222,7 +256,7 @@ for i in list1 :
 list2 = [i + 1 for i in list1]
 ```
 
-#### 이중 for문 한줄로 작성하기
+### 이중 for문 한줄로 작성하기
 ```python
 list1 = [1, 2, 3]
 list2 = [1, 1, 1]
@@ -243,7 +277,7 @@ list3 = [i + j for i in list1 for j in list2 if i == 1]
 ```
 바깥 for문 먼저 쓰기
 
-#### enumerate()
+### enumerate()
 ```python
 for index, data in enumerate(list):
 ```
@@ -251,11 +285,13 @@ index와 data가 동시에 필요할 때 사용
 - list \> [(index1, data1), (index2, data2), ..]
 - dict \> {index1: data1, index2: data2, ..}
 
+
 # collections 모듈
 ```python
 import collections
 ```
 ## Counter 클래스
+
 
 # itertools 모듈
 ```python
@@ -287,6 +323,8 @@ a.update({'f':3, 'e':2})
 ### elements()
 모든 요소들 반환
 
+
+
 # functools 모듈
 ```python
 import functools
@@ -298,11 +336,15 @@ import functools
 reduce(집계 함수, 순회 가능한 데이터[, 초기값])
 reduce(lambda a, b: a + b, list, 0)
 ```
+
+
 # re 모듈
 ```python
 import re
 ```
-## 정규 표현식
+
+
+# 정규 표현식
 ## 메타 문자
 메타 문자 : 기존의 의미가 아닌 특별한 용도로 사용하는 문자<br>
 `. ^ $ * + ? { } [ ] \ | ( )`
@@ -323,8 +365,8 @@ answer = re.sub('^[.]|[.]$', '', answer)
 
 
 
-## 오류 발생
-### 들여쓰기 오류
+# 오류 발생
+## 들여쓰기 오류
 `IndentationError: unindent does not match any outer indentation level`
 들여쓰기에 tab과 space를 섞어서 사용됨!<br>
 처음에 tab를 사용했으면 계속 tab으로 들여쓰기를 해야 함<br>
