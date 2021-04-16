@@ -129,14 +129,21 @@ s1.isdisjoint(s2)   # 공통 원소가 없는가?
 s1.issubset(s2)     # 부분집합인가?
 s1.issuperset(s2)   # 확대집합인가?
 
-s3 = s1.union(s2)       # 합집합 만들어 리턴
-s1.update(s2)           # 합집합 만들어 s1 수정
-s3 = s1.difference(s2)  # 차집합 만들어 리턴
-s1.difference_update(s2)# 차집합 만들어 s1 수정
+# update가 붙은 함수는 원본 데이터를 변경
+s3 = s1.union(s2)           # 합집합 만들어 리턴
+s1.update(s2)               # 합집합 만들어 s1 수정
+s3 = s1.difference(s2)      # 차집합 만들어 리턴
+s1.difference_update(s2)    # 차집합 만들어 s1 수정
 
+s3 = s1.intersection(s2)            # 교집합 만들어 리턴
+s1.intersection_update(s2)          # 교집합 만들어 s1 수정
+s3 = s1.symmetric_difference(s2)    # 대칭차 만들어 리턴
+s1.symmetric_difference_update(s2)  # 대칭차 만들어 s1 수정
 
 ```
-
+### 대칭차
+둘 중 한 집합에는 속하지만 둘 모두에는 속하지 않는 원소들의 집합<br>
+합집합에서 교집합 뺀 부분<br>
 
 
 # ASCII 코드 변경
@@ -286,11 +293,31 @@ index와 data가 동시에 필요할 때 사용
 - dict \> {index1: data1, index2: data2, ..}
 
 
+# sys 모듈
+```python
+import sys
+```
+
+## stdin
+```python
+from sys import stdin
+input = stdin.readline
+```
+
+## 재귀
+```python
+from sys import getrecursionlimit, setrecursionlimit
+getrecursionlimit()         # 최대 재귀 깊이 확인, 백준 기본 1000
+setrecursionlimit(100000)   # 최대 재귀 깊이 변경
+```
+
+
 # collections 모듈
 ```python
 import collections
 ```
-## Counter 클래스
+
+## defaultdict()
 
 
 # itertools 모듈
