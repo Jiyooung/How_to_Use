@@ -106,6 +106,27 @@ a = sorted(d.items(), key=lambda x:x[0]) # d.items() > [(key, value)] 형태로 
 원본 리스트 영향X, **정렬된 새로운 리스트 반환**
 모든 iterable(list, tuple, dict, 문자열 등등)에 동작 가능
 
+### 1차원 배열 순서 바꾸기
+#### reverse(), reversed()
+```python
+seqList = [0,10,20,40]
+seqList.reverse()  # [40, 20, 10, 0]
+
+seqList = [1, 2, 4, 3, 5]
+seqList = list(reversed(seqList)) # [5, 3, 4, 2, 1]
+```
+
+### 2차원 배열 행, 열 바꾸기
+#### for문, zip()
+```python
+re = [[0]*n for _ in range(n)]
+for i in range(n):
+    for j in range(n):
+        re[i][j] = scores[j][i]
+
+mylist = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+new_list = list(map(list, zip(*mylist)))
+```
 
 ## set
 ```python
