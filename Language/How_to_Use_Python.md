@@ -117,13 +117,15 @@ seqList = list(reversed(seqList)) # [5, 3, 4, 2, 1]
 ```
 
 ### 2차원 배열 행, 열 바꾸기
-#### for문, zip()
+#### for문 사용
 ```python
 re = [[0]*n for _ in range(n)]
 for i in range(n):
     for j in range(n):
         re[i][j] = scores[j][i]
-
+```
+#### zip() 사용
+```python
 mylist = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 new_list = list(map(list, zip(*mylist)))
 ```
