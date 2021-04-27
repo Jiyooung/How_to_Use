@@ -107,11 +107,13 @@ a = sorted(d.items(), key=lambda x:x[0]) # d.items() > [(key, value)] 형태로 
 모든 iterable(list, tuple, dict, 문자열 등등)에 동작 가능
 
 ### 1차원 배열 순서 바꾸기
-#### reverse(), reversed()
+#### reverse()
 ```python
 seqList = [0,10,20,40]
 seqList.reverse()  # [40, 20, 10, 0]
-
+```
+#### reversed()
+```python
 seqList = [1, 2, 4, 3, 5]
 seqList = list(reversed(seqList)) # [5, 3, 4, 2, 1]
 ```
