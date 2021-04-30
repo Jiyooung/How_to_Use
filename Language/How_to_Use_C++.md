@@ -1,66 +1,109 @@
 # C++
 
-## cin, cout
+# include
 ```c++
-ios::sync_with_stdio(false);	// 속도를 좀 더 빨리 해줌
-cin.tie(0); cout.tie(0);	    // 왜 하는 지? 알아보기
+#include <iostream>
+#include <queue>
+#include <stack>
+#include <cstdio>
+#include <vector>
+#include <cstring>
+#include <string>
+#include <math.h>
+#include <algorithm>
+#include <map>
+```
 
-cout << endl;       // endl 되게 느림 \n 사용해라
-cout << '\n';
+# cin, cout
+```c++
+int main(void) {
+    ios::sync_with_stdio(false);	// 속도를 좀 더 빨리 해줌
+    cin.tie(0); cout.tie(0);	    // 왜 하는 지? 알아보기
+
+    cout << endl;       // endl 되게 느림 \n 사용해라
+    cout << '\n';
+}
 ```
 위 2개를 쓰면 printf, scanf를 쓰는 건 조심! 
 
-## 변수
+# 변수
 웬만하면 전역변수 사용 -> 자동으로 0으로 초기화됨
 |영역|설명|
 |--|--|
 |데이터영역|데이터영역이 스택영역보다 훨씬 큼. 전역변수 저장|
 |스택영역|지역변수 저장|
 
-## 자료구조
+# 자료구조
 
-### stack
+## stack
 top은 보기
 pop은 빼기(볼 수 없음)
 empty는 사이즈 있으면 0
 임의접근 불가
 
-### heap 
+## heap 
 덩어리.. 원소들이 들어있는 뭉텅이
 
-### queue
+## queue
 임의접근 불가
 
-### deque
+## deque
 deque만 임의접근 가능, 근데 쓸일이 별로 없음
 
-### priority_queue
-기본이 최대힙
-priority_queue<int, vector<int>, less<int> > pq	: 최대힙이 나옴
-priority_queue<int, vector<int>, greater<int> > pq	: 최소힙
+## priority_queue
+기본이 최대힙<br>
+priority_queue\<int, vector\<int>, less\<int> > pq	: 최대힙이 나옴<br>
+priority_queue\<int, vector\<int>, greater\<int> > pq	: 최소힙<br>
 
-### set
+## set
 집합
 
-### map
+## map
 key값으로 value찾는 hashmap 같은 것
 
-### vector 
+## vector 
 메모리 용량 줄이기 가능
 
-### pair<T, T> p
+## pair<T, T> p
 operator< : first 가 같을 때 second 비교
 first를 먼저 비교
 
-### tuple
+## tuple
 pair 보다 여러 개를 묶을 때 사용
 쓸 바엔 다른거 써
 
+# 배열
+## 1차원 배열 초기화
+### fill_n(변경하려는 원소의 범위 시작주소, 변경하려는 원소 갯수, 변경 값)
+```c++
+int a[5] = {0};     // 모두 0으로 초기화
+fill_n(a, 5, 1);    // 모두 1로 초기화
+```
+### fill(변경하려는 원소의 범위 시작주소, 변경하려는 원소의 범위 종료주소, 변경 값)
+```c++
+int a[5] = {0};     // 모두 0으로 초기화
+fill(a, a+5, 1);    // 모두 1로 초기화
+```
+## 2차원 배열 초기화 : fill()
+```c++
+int MAX = 10;
+int visit[MAX][MAX];
+int num = 5;    // 초기화할 값
+fill(&visit[0][0], &visit[MAX-1][MAX], num);
 
-## 문자열처리
+// 출력 확인
+for (int i=0; i<MAX; i++) {
+    for (int j=0; j<MAX; j++) {
+        cout << visit[i][j];
+    }
+    cout << '\n';
+}
+```
+
+# 문자열처리
 \<string> vs \<string>
 
-### \<string>
+## \<string>
 string 형 쓰려면 \<string>
 \<string>
 ```c++
@@ -71,7 +114,7 @@ atoi(str.c_str())   // cstdlib에 존재
 ```
 임의 접근 가능 : (예시 str[3] : 그러나 char가 아님 주의)
 
-### \<string>
+## \<string>
 char배열
 임의 접근 가능
 ```c++
