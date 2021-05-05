@@ -18,3 +18,6 @@
 ## [Binary Search](./Binary_Search.md)
 
 ## [Math](./Math.md)
+
+## [Shortest path algorithm](./Shortest_path_algorithm.md)
+
