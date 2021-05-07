@@ -344,6 +344,10 @@ import collections
 ```
 
 ## defaultdict()
+dictionary 기본 값 설정
+```python
+dic = defaultdict(int)  # value 자동으로 0으로 설정됨
+```
 
 
 # itertools 모듈
