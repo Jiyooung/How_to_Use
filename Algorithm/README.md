@@ -21,3 +21,4 @@
 
 ## [Shortest path algorithm](./Shortest_path_algorithm.md)
 
+## [KMP](./KMP.md)
